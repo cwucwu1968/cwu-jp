@@ -36,12 +36,17 @@ img{max-width:100%}
 .main-nav{display:flex;gap:2px;margin-left:auto;flex-wrap:wrap;justify-content:flex-end}
 .main-nav button{background:none;border:none;padding:10px 11px;font-size:14.5px;font-weight:700;color:var(--ink);border-radius:999px;min-height:44px;white-space:nowrap}
 .main-nav button:hover{background:var(--red-soft)}
+.main-nav a{display:inline-flex;align-items:center;text-decoration:none;padding:10px 11px;font-size:14.5px;font-weight:700;color:var(--red-dark);border-radius:999px;min-height:44px;white-space:nowrap}
+.main-nav a:hover{background:var(--red-soft)}
+@media (prefers-color-scheme: dark){.main-nav a{color:#f0a3a3}}
 .main-nav button[aria-current="page"]{background:var(--red);color:#fff}
 .burger{display:none;margin-left:auto;background:var(--red);color:#fff;border:none;width:48px;height:48px;border-radius:12px;font-size:22px;line-height:1}
 .mobile-menu{display:none;border-top:1px solid var(--line);padding:10px 14px 16px;background:var(--bg)}
 .mobile-menu.open{display:block}
 .mobile-menu button{display:block;width:100%;text-align:left;background:none;border:none;border-bottom:1px solid var(--line);padding:14px 8px;font-weight:700;font-size:16px;min-height:52px;color:var(--ink)}
 .mobile-menu button[aria-current="page"]{color:var(--red)}
+.mobile-menu a{display:block;text-decoration:none;border-bottom:1px solid var(--line);padding:14px 8px;font-weight:700;font-size:16px;min-height:52px;color:var(--red-dark)}
+@media (prefers-color-scheme: dark){.mobile-menu a{color:#f0a3a3}}
 @media(max-width:980px){.main-nav{display:none}.burger{display:grid;place-items:center}}
 /* layout */
 .wrap{max-width:1180px;margin:0 auto;padding:0 18px 72px}
@@ -621,8 +626,9 @@ var PAGES=[
 var current='home';
 function buildNav(){
 var html=PAGES.map(function(p){return '<button data-go="'+p.id+'" '+(p.id===current?'aria-current="page"':'')+'>'+p.label+'</button>'}).join('');
-document.getElementById('mainNav').innerHTML=html;
-document.getElementById('mobileMenu').innerHTML=html;
+var membersLink='<a href="https://cwu-members.pages.dev" target="_blank" rel="noopener">単組用ページ</a>';
+document.getElementById('mainNav').innerHTML=html+membersLink;
+document.getElementById('mobileMenu').innerHTML=html+membersLink;
 document.getElementById('footNav').innerHTML=PAGES.map(function(p){return '<li><a href="#" data-go="'+p.id+'">'+p.label+'</a></li>'}).join('');
 }
 function go(id,openId){
