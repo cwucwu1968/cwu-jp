@@ -1,0 +1,36 @@
+# 生協労連 cwu.jp — リダイレクト対応表（案）
+# フェーズ3で最終決定するまでの草案。Cloudflare Pages はこのファイルをルートに置くと 301 を返す。
+#
+# 正直な注意点：今の再現版は1ページ内で data-page によりセクションを切り替える作りで、
+# #about のようなアンカーでは該当セクションに直接飛べない。
+# そのためこの草案では、旧URLはすべてトップ（/）へ 301 する。
+# フェーズ3で次のどちらかを決めてから、深いリンクを有効にする：
+#  （a）ハッシュルーティング（/#about 等）を実装する
+#  （b）セクションごとに複数ページに分割し、旧パスを維持する
+# それまでは、旧URLをトップへ集約し、リンク切れ（404）を防ぐのが目的。
+# テスト用・未完成ページはリダイレクトしない（削除対象）。
+
+/aboutus / 301
+/aboutus-mediumtermplan / 301
+/aboutus-symposium / 301
+/hope / 301
+/hope-270m / 301
+/hope-equalpayforequalwork / 301
+/hope-1500 / 301
+/individualization / 301
+/hope-9 / 301
+/hope-kaikenno / 301
+/hope-constitution / 301
+/hope-foodsafety / 301
+/hope-righttostudy / 301
+/welcome / 301
+/blank / 301
+/%E8%A4%87%E8%A3%BD-%E5%A4%A7%E5%AD%A6%E9%83%A8%E4%BC%9A / 301
+/blog-wemen / 301
+/action / 301
+/parade / 301
+/2024generalelection / 301
+/contact / 301
+/contact-fromyoyogi / 301
+# /fbtest — 対象外（削除）
+# 介護部会 — 対象外（削除）
